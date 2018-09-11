@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="msu.olive.Activity.LoginActivity">
+
+    <!-- Login progress -->
+    <ProgressBar
+        android:id="@+id/login_progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <ScrollView
+        android:id="@+id/login_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/login_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:paddingBottom="0dp"
+                android:paddingTop="0dp"
+                android:src="@drawable/ic_olive_logo" />
+
+            <ImageView
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:src="@drawable/olive_text"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="-70dp"
+                android:layout_gravity="center"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/login_username"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/x_box_outline"
+                    android:drawableLeft="@drawable/ic_avatar"
+                    android:drawablePadding="5dp"
+                    android:hint="Username"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkoliveish"
+                    android:textColorHint="@color/grayish" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/login_password"
+                    android:layout_width="250dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/x_box_outline"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:drawablePadding="5dp"
+                    android:hint="Password"
+                    android:imeActionId="6"
+                    android:imeActionLabel="Sign in"
+                    android:imeOptions="actionUnspecified"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="15dp"
+                    android:singleLine="true"
+                    android:textColor="@color/darkoliveish"
+                    android:textColorHint="@color/grayish" />
+
+            </android.support.design.widget.TextInputLayout>
+            <CheckBox
+                android:id="@+id/login_remember_me_checkbox"
+                android:textColor="#2f3d08"
+                android:text="Remember me"
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="30dp" />
+
+            <Button
+                android:id="@+id/login_button_sign_in"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@color/yellowish"
+                android:text="Sign in"
+                android:textColor="#2f3d08"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/login_button_register"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:paddingTop="10dp"
+                android:text="Register"
+                android:gravity="center"
+                android:textColor="#767312"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="msu.olive.Fragment.SettingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/ic_settings" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <Button
+                android:id="@+id/setting_button_profile"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/yellowish"
+                android:background="@drawable/x_box_outline"
+                android:drawableLeft="@drawable/ic_info"
+                android:paddingLeft="30dp"
+                android:text="Personal Infomation"
+                android:textColor="@color/darkoliveish" />
+
+            <Button
+                android:id="@+id/setting_button_changepassword"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:backgroundTint="@color/yellowish"
+                android:background="@drawable/x_box_outline"
+                android:drawableLeft="@drawable/ic_change_password"
+                android:paddingLeft="30dp"
+                android:text="Change Password"
+                android:textColor="@color/darkoliveish" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

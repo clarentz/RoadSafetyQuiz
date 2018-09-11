@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/x_box_outline">
+    <TextView
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/ic_notification"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:text="Notification"
+        android:textSize="15sp"
+        android:gravity="center_vertical"
+        android:textColor="@color/darkoliveish"
+        android:id="@+id/notification_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

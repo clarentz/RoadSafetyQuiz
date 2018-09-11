@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="road_safety_issues">
+        <item>Choose road safety issue</item>
+        <item>Road Crossing</item>
+        <item>Crossing Bridges</item>
+        <item>Cycling</item>
+        <item>Pedestrians</item>
+        <item>Driving</item>
+        <item>Passenger</item>
+
+    </string-array>
+</resources>

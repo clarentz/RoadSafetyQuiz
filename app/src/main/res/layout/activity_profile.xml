@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="msu.olive.Activity.ProfileActivity">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="20dp"
+            android:id="@+id/profile_avatar"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            app:civ_border_color="@color/darkoliveish"
+            app:civ_border_width="5dp"
+            android:src="@drawable/ic_avatar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <TableLayout
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:text="Sex:"
+                        android:textColor="@color/darkoliveish"
+                        android:textSize="18dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:text="Date of Birth:"
+                        android:textColor="@color/darkoliveish"
+                        android:textSize="18dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:text="Email:"
+                        android:textColor="@color/darkoliveish"
+                        android:textSize="18dp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TableLayout
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+
+
+                <TableRow>
+
+                    <RadioGroup>
+
+                        <RadioButton
+                            android:id="@+id/profile_button_male"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Male"
+                            android:textColor="@color/darkoliveish" />
+
+                        <RadioButton
+                            android:id="@+id/profile_button_female"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Female"
+                            android:textColor="@color/darkoliveish" />
+                    </RadioGroup>
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+
+                        android:id="@+id/profile_dob"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/x_box_outline"
+                        android:hint="dd/mm/yyyy"
+                        android:padding="10dp"
+                        android:textColor="@color/darkoliveish"
+                        android:textColorHint="@color/grayish"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <EditText
+                        android:id="@+id/profile_email"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/x_box_outline"
+                        android:hint="Your email address"
+                        android:padding="10dp"
+                        android:textColor="@color/darkoliveish"
+                        android:textColorHint="@color/grayish"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <Button
+                        android:textColor="#ffffff"
+                        android:background="@color/yellowish"
+                        android:id="@+id/profile_button_update"
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:text="Update Profile"
+                        android:textSize="16dp" />
+                </TableRow>
+
+            </TableLayout>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

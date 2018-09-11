@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context="msu.olive.Activity.RegisterActivity">
+
+    <ImageView
+
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:src="@drawable/ic_sign_up" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+        <EditText
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/x_box_outline"
+            android:textColor="@color/darkoliveish"
+            android:paddingLeft="5dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="5dp"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/ic_avatar"
+            android:id="@+id/register_username"
+            android:hint="Username"
+            android:textColorHint="@color/grayish"
+            android:layout_width="250dp"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:paddingLeft="5dp"
+            android:background="@drawable/x_box_outline"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/darkoliveish"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/ic_lock"
+            android:textColorHint="@color/grayish"
+            android:id="@+id/register_password"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:paddingLeft="5dp"
+            android:background="@drawable/x_box_outline"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/darkoliveish"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/ic_retype"
+            android:textColorHint="@color/grayish"
+            android:id="@+id/register_retype"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:hint="Retype password"
+            android:inputType="textPassword" />
+        <EditText
+            android:paddingLeft="5dp"
+            android:background="@drawable/x_box_outline"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/darkoliveish"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/ic_info"
+            android:textColorHint="@color/grayish"
+            android:id="@+id/register_info"
+            android:hint="Personal information"
+            android:layout_width="250dp"
+            android:layout_height="40dp" />
+        <Button
+
+            android:textColor="@color/darkoliveish"
+            android:id="@+id/register_button_sign_up"
+            android:text="Register"
+            android:gravity="center"
+            android:background="@color/yellowish"
+            android:layout_width="250dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+</LinearLayout>

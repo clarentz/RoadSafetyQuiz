@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:gravity="center"
+    android:background="@drawable/x_box_outline"
+    tools:context=".Activity.GameOverActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/x_box_outline"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:backgroundTint="@color/yellowish"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtFromGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From which game"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/darkoliveish"/>
+
+        <TextView
+            android:id="@+id/txtScoreFinal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Number of correct answers"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:textColor="@color/darkoliveish"/>
+
+        <TextView
+            android:id="@+id/txtAnswered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total question"
+            android:textSize="25dp"
+            android:textAlignment="center"
+            android:textColor="@color/darkoliveish"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnPostScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share Score"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/yellowish"/>
+
+    <Button
+        android:id="@+id/btnHiscore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leaderboard"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/yellowish"/>
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/yellowish"/>
+
+</LinearLayout>
