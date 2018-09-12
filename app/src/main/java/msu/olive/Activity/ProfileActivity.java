@@ -117,8 +117,8 @@ public class ProfileActivity extends AppCompatActivity {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("id_user", String.valueOf(id_user));
                 hashMap.put("avatar", profile_avatar_url_edit);
-                hashMap.put("email", email);
-                hashMap.put("sex", String.valueOf(profiel_sex_edit));
+                //hashMap.put("email", email);
+                hashMap.put("gender", String.valueOf(profiel_sex_edit));
                 hashMap.put("date", dateofbirth);
                 Log.i("Update:", Server.ImageURL + profile_avatar_url_edit + id_user);
                 return hashMap;
@@ -162,7 +162,7 @@ public class ProfileActivity extends AppCompatActivity {
     private void readData(String s) throws JSONException {
         if (s != null) {
             JSONObject jsonObject =  new JSONObject(s);
-            profile_sex = jsonObject.getInt("sex");
+            profile_sex = jsonObject.getInt("gender");
             profile_avatar_url = jsonObject.getString("avatar");
             profile_dob = jsonObject.getString("date");
            // profile_email = jsonObject.getString("email");

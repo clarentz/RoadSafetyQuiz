@@ -162,6 +162,7 @@ public class YesNoGameActivity extends AppCompatActivity {
                         stopGame2.putExtra("question_answered", answered_question);
                         stopGame2.putExtra("id_game", 2);
                         stopGame2.putExtra("id_user", id_user);
+                        YesNoGameActivity.this.finish();
                         startActivity(stopGame2);
 
                     }

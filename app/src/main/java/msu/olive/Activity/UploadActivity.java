@@ -43,12 +43,17 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import javax.microedition.khronos.opengles.GL;
+
 import msu.olive.R;
 import msu.olive.Server.RequestHandler;
 import msu.olive.Server.Server;
 import msu.olive.Activity.MapsActivity;
 import msu.olive.Server.RequestHandler;
 import msu.olive.Server.Server;
+
+import static android.opengl.GLES20.GL_MAX_TEXTURE_SIZE;
+
 public class UploadActivity extends AppCompatActivity {
 
     private static int CAMERA_REQUEST_PERMISSION = 100;
@@ -66,6 +71,7 @@ public class UploadActivity extends AppCompatActivity {
     Button btnPost;
 
     Bitmap bitmap;
+    Bitmap resizedBitmap;
     String mCurrentPhotoPath;
     private Uri selectedImage;
 
@@ -496,6 +502,15 @@ public class UploadActivity extends AppCompatActivity {
 
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
+
+                    int dstWidth = (int) (bitmap.getWidth() * 0.8);
+                    int dstHeight = (int) (bitmap.getHeight() * 0.8);
+
+                    resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth,dstHeight,true);
+                    bitmap = resizedBitmap;
+
+                }
                 imgPreview.setImageBitmap(bitmap);
 
             } catch (IOException e) {
@@ -507,6 +522,15 @@ public class UploadActivity extends AppCompatActivity {
         if (requestCode == OPEN_CAMERA_MARSHMALLOW && resultCode == RESULT_OK ){
             try{
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
+                if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
+
+                    int dstWidth = (int) (bitmap.getWidth() * 0.8);
+                    int dstHeight = (int) (bitmap.getHeight() * 0.8);
+
+                    resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth,dstHeight,true);
+                    bitmap = resizedBitmap;
+
+                }
                 imgPreview.setImageBitmap(bitmap);
             }
             catch (IOException e){
@@ -523,7 +547,21 @@ public class UploadActivity extends AppCompatActivity {
         if (requestCode == OPEN_CAMERA_NOUGAT && resultCode == RESULT_OK){
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
-                imgPreview.setImageBitmap(bitmap);
+
+                if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
+
+                    int dstWidth = (int) (bitmap.getWidth() * 0.8);
+                    int dstHeight = (int) (bitmap.getHeight() * 0.8);
+
+                    resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth,dstHeight,true);
+                    bitmap = resizedBitmap;
+
+                }
+                    imgPreview.setImageBitmap(bitmap);
+
+
+
+
             }catch (IOException e){
                 e.printStackTrace();
                 Log.e("error", e.toString());

@@ -72,6 +72,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
                         stop.putExtra("id_game", 1);
                         stop.putExtra("question_answered", answered_question);
                         stop.putExtra("id_user", id_user);
+                        MultipleChoicesGameActivity.this.finish();
                         startActivity(stop);
 
                     }
