@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context="msu.olive.Activity.ViewUserPostActivity">
+
+    <ScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="false"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp">
+
+                    <TextView
+                        android:id="@+id/viewpost_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="Your post"
+                        android:textAlignment="center"
+                        android:textColor="@color/darkoliveish"
+                        android:textSize="25sp"
+                        android:backgroundTint="@color/yellowish"
+                        android:background="@drawable/x_box_outline"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/viewuserpost_area"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="8"
+                        android:padding="5dp"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/grayish"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/viewuserpost_issue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="8"
+                        android:padding="5dp"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/pinkish"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/viewuserpost_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="10"
+                        android:padding="5dp"
+                        android:textAlignment="inherit"
+                        android:textColor="@color/darkoliveish"
+                        android:textSize="15sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:background="@drawable/x_box_outline"
+                    android:gravity="center"
+                    android:backgroundTint="@color/white">
+
+                    <ImageView
+                        android:id="@+id/viewuserpost_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitStart"
+                        android:adjustViewBounds="true"
+                        android:src="@mipmap/ic_image_thumbnail" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@color/yellowish">
+
+                <ImageView
+                    android:id="@+id/viewuserpost_like_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_like" />
+
+                <TextView
+                    android:id="@+id/viewuserpost_like_count"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/darkoliveish"
+                    android:text="*"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp" />
+
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/viewuserpost_comment_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
