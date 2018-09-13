@@ -42,6 +42,7 @@ import java.util.List;
 import java.util.Map;
 
 import msu.olive.Activity.ViewPostActivity;
+import msu.olive.Activity.ViewUserPostActivity;
 import msu.olive.Adapter.UserfeedAdapter;
 import msu.olive.Model.User;
 import msu.olive.Model.Userfeed;
@@ -99,7 +100,7 @@ public class UserfeedFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) { //getting data cross-activities with Intent
-                Intent intent = new Intent(getContext(), ViewPostActivity.class);
+                Intent intent = new Intent(getContext(), ViewUserPostActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("data", (Serializable) parent.getAdapter().getItem(position));
                 intent.putExtra("key", bundle);

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_vertical"
     tools:context="msu.olive.Activity.ViewPostActivity">
 
     <ScrollView
@@ -17,28 +18,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@drawable/x_box_outline">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/x_box_outline"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:weightSum="8">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="56dp"
                     android:layout_marginBottom="2dp"
                     android:layout_marginTop="2dp"
-                    android:background="@color/white">
+                    android:gravity="center_horizontal">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/viewpost_avatar"
-                        android:layout_width="56dp"
-                        android:layout_height="56dp"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
                         android:src="@drawable/ic_avatar"
                         app:civ_border_color="@color/yellowish"
                         android:layout_margin="5dp"
@@ -54,6 +53,7 @@
                         android:textAlignment="gravity"
                         android:textColor="@color/darkoliveish"
                         android:textSize="25sp"
+                        android:paddingBottom="2dp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -111,7 +111,8 @@
                         android:id="@+id/viewpost_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:scaleType="fitXY"
+                        android:scaleType="fitStart"
+                        android:adjustViewBounds="true"
                         android:src="@mipmap/ic_image_thumbnail" />
                 </LinearLayout>
             </LinearLayout>
