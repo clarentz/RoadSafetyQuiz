@@ -47,6 +47,11 @@
                     android:text="Question"
                     android:textColor="@color/darkoliveish"
                     android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/txtIssueMC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <ImageView

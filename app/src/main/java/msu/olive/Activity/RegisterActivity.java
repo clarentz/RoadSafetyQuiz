@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(RegisterActivity.this, "Creating account, please wait ...", null, true, true);
+                loading = ProgressDialog.show(RegisterActivity.this, getApplicationContext().getResources().getString(R.string.creating_account), null, true, true);
             }
 
             @Override
@@ -77,14 +77,14 @@ public class RegisterActivity extends AppCompatActivity {
                 super.onPostExecute(s);
                 loading.dismiss();
                 if (s.equals("0")) {
-                    Toast.makeText(RegisterActivity.this, "Register failed! Your username has been used, please choose another!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, R.string.register_failed_used, Toast.LENGTH_SHORT).show();
                 } else if (s.equals("1")) {
-                    Toast.makeText(RegisterActivity.this, "Register succeeded!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, R.string.register_success, Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
                     Toast.makeText(RegisterActivity.this, s, Toast.LENGTH_SHORT).show();
                     Log.i("error", s);
-                    Toast.makeText(RegisterActivity.this, "Register failed! Fatal errors occur in the process!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, R.string.register_failed_fatal, Toast.LENGTH_SHORT).show();
                 }
             }
         }

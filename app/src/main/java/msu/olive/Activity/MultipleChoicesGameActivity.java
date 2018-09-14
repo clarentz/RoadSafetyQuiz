@@ -33,6 +33,8 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
     private ImageView imgQuestionMC;
     private TextView txtQuestionMC, txtScoreMC;
     int MC_RANDOM_QUESTION, MC_RANDOM_PLACE;
+    private TextView txtIssueMC;
+
     String host = "http://" + Server.HOST;
 
     View correct_answer_toast, wrong_answer_toast;
@@ -132,6 +134,9 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
                 String strQuestion = "Select position of " + question_material_MC.getRoad_name() + " :";
 
                 txtQuestionMC.setText(strQuestion);
+                Toast.makeText(this, question_material_MC.getIssue(), Toast.LENGTH_SHORT).show();
+                txtIssueMC.setText(question_material_MC.getIssue());
+
                 btnA.setText(question_material_MC.getSub_admin_area());
                 btnB.setText(random_answer1.getSub_admin_area());
                 btnC.setText(random_answer2.getSub_admin_area());
@@ -285,6 +290,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         txtQuestionMC = findViewById(R.id.txtQuestionMC);
         txtScoreMC = findViewById(R.id.txtScoreMC);
         imgQuestionMC = findViewById(R.id.imgQuestionMC);
+        txtIssueMC = findViewById(R.id.txtIssueMC);
 
         LayoutInflater inflater  = getLayoutInflater();
         correct_answer_toast = inflater.inflate(R.layout.toast_layout_correct,
