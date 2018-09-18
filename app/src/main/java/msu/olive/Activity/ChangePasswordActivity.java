@@ -57,13 +57,17 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
     private void pushData(final int id_user) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        loading = ProgressDialog.show(ChangePasswordActivity.this, "Loading...", null, true, true);
+        loading = ProgressDialog.show(ChangePasswordActivity.this,
+                getApplicationContext().getResources().getString(R.string.loading),
+                                                    null,
+                                                    true,
+                                                    true);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.Profile_GetURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 loading.dismiss();
                 if (response == null) {
-                    Toast.makeText(ChangePasswordActivity.this, "No user profile available!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePasswordActivity.this, R.string.no_profile, Toast.LENGTH_SHORT).show();
                 } else {
                     try {
                         readData(response);
@@ -94,33 +98,37 @@ public class ChangePasswordActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject(s);
             changepassword_password = jsonObject.getString("password");
             if (changepassword_oldpassword.getText().toString().length() < 0) {
-                Toast.makeText(this, "Change password failed! Please insert your old password!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.insert_old_pw, Toast.LENGTH_SHORT).show();
             } else if (changepassword_newpassword.getText().toString().length() < 0) {
-                Toast.makeText(this, "Change password failed! Please insert your new password!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.insert_new_pw, Toast.LENGTH_SHORT).show();
             } else if (changepassword_retype.getText().toString().length() < 0) {
-                Toast.makeText(this, "Change password failed! Please retype your new password!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.retype_new_pw, Toast.LENGTH_SHORT).show();
             } else if (changepassword_oldpassword.getText().toString().equals(changepassword_password)) {
                 if (changepassword_retype.getText().toString().equals(changepassword_newpassword.getText().toString())) {
                     changePassword(changepassword_newpassword.getText().toString());
                 } else {
-                    Toast.makeText(this, "Passwords unmatched! Please retype your passwords correctly!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.password_unmatched, Toast.LENGTH_SHORT).show();
                     finish();
                 }
             } else {
-                Toast.makeText(this, "Change password failed! Please insert your correct information!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.change_pass_failed, Toast.LENGTH_SHORT).show();
             }
         }
     }
 
     private void changePassword(final String s) {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        loading = ProgressDialog.show(ChangePasswordActivity.this, "Loading...", null, true, true);
+        loading = ProgressDialog.show(ChangePasswordActivity.this,
+                getApplicationContext().getResources().getString(R.string.loading),
+                null,
+                true,
+                true);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.Password_UpdateURL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 loading.dismiss();
                 if (response == null) {
-                    Toast.makeText(ChangePasswordActivity.this, "Update password failed! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ChangePasswordActivity.this, R.string.update_pw_failed, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
                 }

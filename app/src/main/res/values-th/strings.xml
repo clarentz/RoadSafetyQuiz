@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="Register"></string>
+    <string name="log_in"></string>
+    <string name="register_failed_used"></string>
 </resources>

@@ -38,13 +38,13 @@ public class RegisterActivity extends AppCompatActivity {
         String retype = register_retype.getText().toString();
         String info = register_info.getText().toString();
         if (TextUtils.isEmpty(username)) {
-            Toast.makeText(this, "Please insert your username address!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.please_insert_username, Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please insert your password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.please_insert_password, Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(retype)) {
-            Toast.makeText(this, "Please retype your password!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.please_retype_password, Toast.LENGTH_SHORT).show();
         } else if (!password.equals(retype)) {
-            Toast.makeText(this, "Passwords unmatched! Please retype your passwords correctly!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.password_unmatched, Toast.LENGTH_SHORT).show();
         } else {
             pushData(username, password, info);
         }

@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Register"></string>
-    <string name="log_in"></string>
-    <string name="register_failed_used"></string>
+<string-array name="road_safety_issue">
+    <item></item>
+    <item>จักรยาน</item>
+    <item>สะพาน</item>
+    <item></item>
+    <item>คนเดินเท้า</item>
+    <item></item>
+    <item>รถแม</item>
+
+
+</string-array>
 </resources>

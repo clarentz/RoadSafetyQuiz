@@ -83,7 +83,7 @@ public class CommentActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response == null) {
-                    Toast.makeText(getApplicationContext(), "Comment failed!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.comment_failed, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -124,7 +124,11 @@ public class CommentActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading =  ProgressDialog.show(CommentActivity.this, "Loading...", null, true, true);
+                loading =  ProgressDialog.show(CommentActivity.this,
+                         getApplicationContext().getResources().getString(R.string.loading),
+                        null,
+                        true,
+                        true);
             }
 
             @Override
@@ -132,9 +136,9 @@ public class CommentActivity extends AppCompatActivity {
                 super.onPostExecute(s);
                 loading.dismiss();
                 if (s == null) {
-                    Toast.makeText(CommentActivity.this, "Comment failed! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CommentActivity.this, R.string.comment_failed, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(CommentActivity.this, "Comment posted!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CommentActivity.this, R.string.comment_posted, Toast.LENGTH_SHORT).show();
                     NoticeNotification(id_newsfeed, 1);
                     commentAdapter.notifyDataSetChanged(); //inherit from the BaseAdapter class
                     finish();
@@ -151,7 +155,7 @@ public class CommentActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response == null) {
-                    Toast.makeText(CommentActivity.this, "No comment available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CommentActivity.this, R.string.no_comment_available, Toast.LENGTH_SHORT).show();
                 } else {
                     readData(response);
                 }
@@ -292,9 +296,9 @@ public class CommentActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         if (response == null) {
-                            Toast.makeText(CommentActivity.this, "Update comment failed! Please try again!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CommentActivity.this, R.string.update_comment_failed, Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(CommentActivity.this, "Updating...", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CommentActivity.this, R.string.updating_comment, Toast.LENGTH_SHORT).show();
                             dialog.cancel();
                             finish();
                         }

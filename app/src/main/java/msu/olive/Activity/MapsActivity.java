@@ -44,11 +44,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
         addControls();
         addEvents();
-        if (Geocoder.isPresent()){
-            Toast.makeText(this, "GEOCODER IS PRESENT", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "NO GEOCODER", Toast.LENGTH_SHORT).show();
-        }
+
     }
 
     private void addControls() {
@@ -104,7 +100,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker at the current position
         LatLng Current = new LatLng(currentLatitude, currentLongitude);
-        mMap.addMarker(new MarkerOptions().position(Current).title("Current Position"));
+        mMap.addMarker(new MarkerOptions().position(Current).title(String.valueOf(R.string.current_position)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Current));
         mMap.animateCamera( CameraUpdateFactory.zoomTo( 17.0f ) );
 
@@ -112,7 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onMapClick(LatLng latLng) {
                 mMap.clear();
-                markerOptions = new MarkerOptions().position(new LatLng(latLng.latitude, latLng.longitude)).title("Selected position");
+                markerOptions = new MarkerOptions().position(new LatLng(latLng.latitude, latLng.longitude)).title(String.valueOf(R.string.selected_position));
                 mMap.addMarker(markerOptions);
                 selectedPosition = new LatLng(latLng.latitude, latLng.latitude);
             }

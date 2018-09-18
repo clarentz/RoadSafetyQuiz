@@ -65,8 +65,8 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
     private void confirmStop() {
         new AlertDialog.Builder(this)
                 .setTitle(" ")
-                .setMessage("Do you want to stop?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setMessage(R.string.confirm_stop)
+                .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent stop = new Intent(MultipleChoicesGameActivity.this, GameOverActivity.class);
@@ -78,11 +78,11 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
                         startActivity(stop);
 
                     }
-                }).setNegativeButton("No", null).show();
+                }).setNegativeButton(R.string.No, null).show();
     }
 
     private void play() {
-        txtScoreMC.setText("Your score: " + MCscore);
+        txtScoreMC.setText(R.string.your_score + MCscore);
 
         Random random = new Random();
 
@@ -92,7 +92,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         final Image question_material_MC = imagesArrayList.get(MC_RANDOM_QUESTION);
 
         show_correct_answer = question_material_MC.getRoad_name() + " is in " + question_material_MC.getSub_admin_area();
-
+        //need a check if Thai or Eng
 
         final ArrayList<Image> sub_list1 = new ArrayList<>();
         for (int i = 0; i < imagesArrayList.size(); i++){
@@ -131,11 +131,14 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
 
         switch (MC_RANDOM_PLACE){
             case 0:
-                String strQuestion = "Select position of " + question_material_MC.getRoad_name() + " :";
+                String strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
 
                 txtQuestionMC.setText(strQuestion);
                 Toast.makeText(this, question_material_MC.getIssue(), Toast.LENGTH_SHORT).show();
                 txtIssueMC.setText(question_material_MC.getIssue());
+                if (question_material_MC.getIssue().length() < 2){
+                    txtIssueMC.setVisibility(View.INVISIBLE);
+                }
 
                 btnA.setText(question_material_MC.getSub_admin_area());
                 btnB.setText(random_answer1.getSub_admin_area());
@@ -169,7 +172,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
 
 
             case 1:
-                strQuestion = "Select position of " + question_material_MC.getRoad_name() + " :";
+                strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
                 txtQuestionMC.setText(strQuestion);
 
                 btnB.setText(question_material_MC.getSub_admin_area());
@@ -203,7 +206,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
                 });
 
             case 2:
-                strQuestion = "Select position of " + question_material_MC.getRoad_name() + " :";
+                strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
                 txtQuestionMC.setText(strQuestion);
 
                 btnC.setText(question_material_MC.getSub_admin_area());
@@ -238,7 +241,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
 
 
             case 3:
-                strQuestion = "Select position of " + question_material_MC.getRoad_name() + " :";
+                strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
                 txtQuestionMC.setText(strQuestion);
 
                 btnD.setText(question_material_MC.getSub_admin_area());
@@ -310,7 +313,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         correct_toast.setView(correct_answer_toast);
         correct_toast.show();
 
-        txtScoreMC.setText("Score: " + MCscore);
+        txtScoreMC.setText(R.string.score + MCscore);
         play();
     }
 
@@ -324,7 +327,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         wrong_toast.show();
 
 
-        txtScoreMC.setText("Score: " + MCscore);
+        txtScoreMC.setText(R.string.score + MCscore);
         play();
     }
 }

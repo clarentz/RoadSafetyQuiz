@@ -67,7 +67,7 @@ public class GameOverActivity extends AppCompatActivity {
                     Intent intent = new Intent(GameOverActivity.this, HighScoreYNActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(GameOverActivity.this, "There is an error with the Leaderboard! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(GameOverActivity.this, R.string.leaderboard_error, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -82,18 +82,18 @@ public class GameOverActivity extends AppCompatActivity {
 
         switch (from_game) {
             case 1:
-                strFromGame = "Multiple Choices Game Result";
-                strScore = "Correct Answer: " + Integer.toString(score);
-                strAnswered = "Number of questions: " + Integer.toString(answered);
+                strFromGame = String.valueOf(R.string.multiple_choice_result);
+                strScore =  String.valueOf(R.string.correct_answer)+ Integer.toString(score);
+                strAnswered = String.valueOf(R.string.number_of_question)+ Integer.toString(answered);
 
                 txtScore.setText(strScore);
                 txtFromGame.setText(strFromGame);
                 txtAnswered.setText(strAnswered);
                 break;
             case 2:
-                strFromGame = "Yes No Game Result";
-                strScore = "Correct Answer: " + Integer.toString(score);
-                strAnswered = "Number of questions: " + Integer.toString(answered);
+                strFromGame = String.valueOf(R.string.yes_no_result);
+                strScore = String.valueOf(R.string.correct_answer) + Integer.toString(score);
+                strAnswered = String.valueOf(R.string.number_of_question)+ Integer.toString(answered);
 
                 txtScore.setText(strScore);
                 txtFromGame.setText(strFromGame);
@@ -113,7 +113,9 @@ public class GameOverActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(GameOverActivity.this, "Uploading...", null, true, true);
+                loading = ProgressDialog.show(GameOverActivity.this,
+                        getApplicationContext().getResources().getString(R.string.uploading),
+                        null, true, true);
                 loading.setCanceledOnTouchOutside(false);
             }
 

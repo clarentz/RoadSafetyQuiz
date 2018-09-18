@@ -76,7 +76,7 @@ public class YesNoGameActivity extends AppCompatActivity {
 
         answered_question ++;
 
-        txtScoreYN.setText("Score: " + YNScore);
+        txtScoreYN.setText(R.string.score + YNScore);
 
         Random random = new Random();
         int random_number_question = random.nextInt(2);
@@ -153,8 +153,8 @@ public class YesNoGameActivity extends AppCompatActivity {
     private void confirmStop() {
         new AlertDialog.Builder(this)
                 .setTitle(" ")
-                .setMessage("Do you want to stop?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setMessage(R.string.confirm_stop)
+                .setPositiveButton(R.string.Yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent stopGame2 = new Intent(YesNoGameActivity.this, GameOverActivity.class);
@@ -166,7 +166,7 @@ public class YesNoGameActivity extends AppCompatActivity {
                         startActivity(stopGame2);
 
                     }
-                }).setNegativeButton("No", null).show();
+                }).setNegativeButton(R.string.No, null).show();
 
     }
 
@@ -199,7 +199,7 @@ public class YesNoGameActivity extends AppCompatActivity {
         correct_toast.setView(correct_answer_toast);
         correct_toast.show();
 
-        txtScoreYN.setText("Your score: " + YNScore);
+        txtScoreYN.setText(R.string.score + YNScore);
         play();
     }
 
@@ -213,7 +213,7 @@ public class YesNoGameActivity extends AppCompatActivity {
         wrong_toast.show();
 
 
-        txtScoreYN.setText("Score: " + YNScore);
+        txtScoreYN.setText(R.string.score + YNScore);
         play();
     }
 }

@@ -52,7 +52,7 @@ public class ViewPostActivity extends AppCompatActivity {
     String comment_username = "";
     String comment_content = "";
 
-    Comment comment = new Comment(12,3,"jay", "hehe");
+    //Comment comment = new Comment(12,3,"jay", "hehe");
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -120,7 +120,7 @@ public class ViewPostActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response == null) {
-                    Toast.makeText(ViewPostActivity.this, "No comment available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewPostActivity.this, R.string.no_comment_available, Toast.LENGTH_SHORT).show();
                 } else {
                     readData(response);
                 }

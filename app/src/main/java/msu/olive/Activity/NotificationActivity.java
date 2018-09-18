@@ -63,7 +63,7 @@ public class NotificationActivity extends AppCompatActivity {
                 if (response != null) {
                     readData(response);
                 } else {
-                    Toast.makeText(NotificationActivity.this, "No notification data available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NotificationActivity.this, R.string.no_noti, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -118,9 +118,9 @@ public class NotificationActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response == null) {
-                    Toast.makeText(NotificationActivity.this, "Delete failed! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NotificationActivity.this, R.string.delete_fail, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(NotificationActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(NotificationActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }

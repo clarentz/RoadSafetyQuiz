@@ -65,7 +65,7 @@ public class ImageActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response == null) {
-                    Toast.makeText(ImageActivity.this, "No image available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ImageActivity.this, R.string.no_img_available, Toast.LENGTH_SHORT).show();
                 } else {
                     readData(response, images);
                 }

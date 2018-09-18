@@ -1,17 +1,91 @@
 <resources>
-    <string name="app_name">Olive</string>
+    <string name="app_name">Road safety for Elder</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_maps2">Map</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="score">Score: </string>
+
+    <!--ChangePasswordActivity-->
+    <string name="loading">Loading....</string>
+    <string name="no_profile">No user profile available!</string>
+    <string name="insert_old_pw">Change password failed! Please insert your old password!</string>
+    <string name="insert_new_pw">Change password failed! Please insert your new password!</string>
+    <string name="retype_new_pw">Change password failed! Please retype your new password!</string>
+    <string name="change_pass_failed">Change password failed! Please insert your correct information!</string>
+    <string name="update_pw_failed">Update password failed! Please try again!</string>
+
+
+    <!--CommentActivity-->
+    <string name="comment_failed">Comment failed!</string>
+    <string name="comment_posted">Comment posted!</string>
+    <string name="no_comment_available">No comment available</string>
+    <string name="update_comment_failed">Update comment failed! Please try again!</string>
+    <string name="updating_comment">Updating...</string>
+
+    <!--2 games activities-->
+    <string name="confirm_stop">Do you want to stop?</string>
+    <string name="your_score">Your score: </string>
+    <string name="select_position_of">Select position of </string>
+
+
+    <!--NotificationActivity-->
+    <string name="no_noti">No notification data available</string>
+    <string name="delete_fail">Delete failed! Please try again!</string>
+
+
+    <!--ProfileActivity-->
+    <string name="update_pro_failed">"Update profile failed! Please try again!"</string>
+    <string name="no_profile_data">"No profile data available"</string>
+
+    <!--GameOverActivity-->
+    <string name="multiple_choice_result">Multiple Choices Game Result: </string>
+    <string name="yes_no_result">Yes No Game Result</string>
+    <string name="correct_answer">"Correct Answer: "</string>
+    <string name="number_of_question">"Number of questions: " </string>
+    <string name="leaderboard_error">There is an error with the Leaderboard! Please try again!</string>
+
+    <!--ImageActivity-->
+    <string name="no_img_available">No image available</string>
+
+    <!--MapsActivity-->
+    <string name="current_position">Your position</string>
+    <string name="selected_position">Selected position</string>
+
+
+    <!--UpdateProfileActivity-->
+    <string name="pick_from_gallery">Pick from gallery</string>
+    <string name="take_a_picture">Take a picture</string>
+    <string name="select_gender">Gender</string>
+    <string name="updating_info">Updating Information....</string>
+
+    <!--UploadActivity-->
+    <string name="uploading">Uploading....</string>
+    <string name="choose_image_to_upload">Please select an image to upload</string>
+
+
+
     <string name="Like"></string>
+
+
+    <!--LoginActivity-->
     <string name="Register">Register</string>
     <string name="log_in">Login</string>
+
+    <!--RegisterActivity-->
+
+    <string name="please_insert_username">Please insert your username!</string>
+    <string name="please_insert_password">Please insert your password!</string>
+    <string name="please_retype_password">Please retype your password!</string>
+    <string name="password_unmatched">Passwords unmatched! Please retype your passwords correctly!</string>
     <string name="register_failed_used">Register failed! Your username has been used, please choose another username!</string>
     <string name="register_success">Register succeeded!</string>
     <string name="register_failed_fatal">Register failed! Fatal errors occur in the process!</string>
     <string name="creating_account">Creating account, please wait</string>
+
 
 
 

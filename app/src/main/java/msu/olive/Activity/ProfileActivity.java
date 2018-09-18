@@ -101,9 +101,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response == null) {
-                    Toast.makeText(ProfileActivity.this, "Update profile failed! Please try again!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, R.string.update_pro_failed, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(ProfileActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
                 }
             }
         }, new Response.ErrorListener() {
@@ -133,9 +133,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 if (response == null) {
-                    Toast.makeText(ProfileActivity.this, "No profile data available", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, R.string.no_profile_data, Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(ProfileActivity.this, "Loading...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
                     try {
                         readData(response);
                     } catch (JSONException e) {

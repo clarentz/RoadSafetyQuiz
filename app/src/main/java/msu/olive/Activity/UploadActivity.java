@@ -56,23 +56,23 @@ import static android.opengl.GLES20.GL_MAX_TEXTURE_SIZE;
 
 public class UploadActivity extends AppCompatActivity {
 
-    private static int CAMERA_REQUEST_PERMISSION = 100;
-    private static final int MAP_REQUEST = 3;
+    private int CAMERA_REQUEST_PERMISSION = 100;
+    private int MAP_REQUEST = 3;
 
-    private static int OPEN_CAMERA_NOUGAT = 70;
-    private static int OPEN_CAMERA_MARSHMALLOW = 60;
-    private static int OPEN_LIBRARY = 50;
+    private int OPEN_CAMERA_NOUGAT = 70;
+    private int OPEN_CAMERA_MARSHMALLOW = 60;
+    private int OPEN_LIBRARY = 50;
 
 
-    ImageView imgPreview;
-    ImageButton btnCamera, btnLibrary, btnLocation;
-    TextView txtAddress;
-    Spinner spnIssues;
-    Button btnPost;
+    private ImageView imgPreview;
+    private ImageButton btnCamera, btnLibrary, btnLocation;
+    private TextView txtAddress;
+    private Spinner spnIssues;
+    private Button btnPost;
 
-    Bitmap bitmap;
-    Bitmap resizedBitmap;
-    String mCurrentPhotoPath;
+    private Bitmap bitmap;
+    private Bitmap resizedBitmap;
+    private String mCurrentPhotoPath;
     private Uri selectedImage;
 
     double currentLat, currentLong;
@@ -152,6 +152,10 @@ public class UploadActivity extends AppCompatActivity {
 
     private void addEvents() {
 
+
+        //Open Camera
+        //---------------------------------------------------------------------------------------------------------------------------
+
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -166,12 +170,18 @@ public class UploadActivity extends AppCompatActivity {
             }
         });
 
+        //Select from the library
+        //----------------------------------------------------------------------------------------------------------------------
         btnLibrary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openLibrary();
             }
         });
+
+
+        //Pick location from Map
+        //----------------------------------------------------------------------------------------------------------------------
 
         btnLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +190,9 @@ public class UploadActivity extends AppCompatActivity {
             }
         });
 
+
+        //UploadImage
+        //----------------------------------------------------------------------------------------------------------------------
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,12 +201,14 @@ public class UploadActivity extends AppCompatActivity {
                 if (bitmap!=null){
                 upload();}
                 else{
-                    Toast.makeText(UploadActivity.this, "Choose image to upload", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UploadActivity.this, R.string.choose_image_to_upload, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
 
+        //Select road safety issue
+        //----------------------------------------------------------------------------------------------------------------------
 
         spnIssues.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -318,7 +333,11 @@ public class UploadActivity extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(UploadActivity.this, "Uploading...", null, true, true);
+                loading = ProgressDialog.show(UploadActivity.this,
+                        getApplicationContext().getResources().getString(R.string.uploading),
+                        null,
+                        true,
+                        true);
                 loading.setCanceledOnTouchOutside(false);
             }
 
