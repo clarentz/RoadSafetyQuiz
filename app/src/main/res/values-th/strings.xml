@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Register"></string>
-    <string name="log_in"></string>
-    <string name="register_failed_used"></string>
+    <string name="app_name">แอปพลิเคชันความปลอดภัยบนท้องถนนสำหรับสังคมผู้สูงอายุ</string>
+    <string name="title_activity_maps">แผนที่</string>
+    <string name="title_activity_maps2">แผนที่</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="Yes">ใช่</string>
+    <string name="No">ไม่ใช่</string>
+    <string name="score">คะแนน :</string>
+
+    <!--ChangePasswordActivity-->
+    <string name="loading">กำลังโหลด....</string>
+    <string name="no_profile"> ไม่มีข้อมูลผู้ใช้!</string>
+    <string name="insert_old_pw">การเปลี่ยนรหัสผ่านไม่สำเร็จ!</string>
+    <string name="insert_new_pw">การเปลี่ยนรหัสผ่านไม่สำเร็จ!</string>
+    <string name="retype_new_pw">การเปลี่ยนรหัสผ่านไม่สำเร็จ!</string>
+    <string name="change_pass_failed">การเปลี่ยนรหัสผ่านไม่สำเร็จ!</string>
+    <string name="update_pw_failed">การเปลี่ยนรหัสผ่านไม่สำเร็จ!</string>
+
+
+    <!--CommentActivity-->
+    <string name="comment_failed">เพิ่มข้อความไม่สำเร็จ!</string>
+    <string name="comment_posted">เพิ่มข้อความสำเร็จ!</string>
+    <string name="no_comment_available">ไม่สามารถเพิ่มข้อความได้</string>
+    <string name="update_comment_failed">เพิ่มข้อความไม่สำเร็จ! กรุณาลองใหม่อีกครั้ง!</string>
+    <string name="updating_comment">กำลังอัพเดท Updating...</string>
+
+    <!--2 games activities-->
+    <string name="confirm_stop">คุณต้องการหยุด?</string>
+    <string name="your_score">คะแนน: </string>
+    <string name="select_position_of">เลือกสถานที่ของ</string>
+    <string name="is_in">อยู่ใน</string>
+
+
+    <!--NotificationActivity-->
+    <string name="no_noti">ไม่มีข้อมูลแจ้งเตือน</string>
+    <string name="delete_fail">ทำการลบไม่สำเร็จ กรุณาลองใหม่อีกครั้ง!</string>
+
+
+
+    <!--ProfileActivity-->
+    <string name="update_pro_failed">ไม่สามารถแก้ไขข้อมูลส่วนตัวได้ กรุณาลองใหม่อีกครั้ง !</string>
+    <string name="no_profile_data">ไม่มีข้อมูลส่วนตัว!</string>
+
+    <!--GameOverActivity-->
+    <string name="multiple_choice_result">ผลการเล่นเกมเลือกตอบ: </string>
+    <string name="yes_no_result">ผลการเล่นเกมใช่หรือไม่</string>
+    <string name="correct_answer">คำตอบที่ถูก: </string>
+    <string name="number_of_question">คำถามลำดับที่ "Number of questions: </string>
+    <string name="leaderboard_error">กระดานคะแนนสูงสุดมีปัญหา กรุณาลองใหม่อีกครั้ง .</string>
+
+    <!--ImageActivity-->
+    <string name="no_img_available">ไม่มีรูปในขณะนี้</string>
+
+    <!--MapsActivity-->
+    <string name="current_position">สถานที่</string>
+    <string name="selected_position">เลือกสถานที่</string>
+
+
+    <!--UpdateProfileActivity-->
+    <string name="pick_from_gallery">เลือกจากอัลบั้ม</string>
+    <string name="take_a_picture">ถ่ายรูป</string>
+    <string name="select_gender">เพศ</string>
+    <string name="updating_info">อัพเดทข้อมูล....</string>
+
+    <!--UploadActivity-->
+    <string name="uploading">กำลังอัพโหลด ....</string>
+    <string name="choose_image_to_upload">กรุณาเลือกรูปที่ต้องการอัพโหลด</string>
+
+
+
+    <string name="Like">ชอบ</string>
+
+
+    <!--LoginActivity-->
+    <string name="Register">ลงทะเบียน </string>
+    <string name="log_in">เข้าสู่ระบบ</string>
+
+    <!--RegisterActivity-->
+
+    <string name="please_insert_username">กรุณากรอกชื่อผู้ใช้!</string>
+    <string name="please_insert_password">กรุณากรอกรหัสผ่าน!</string>
+    <string name="please_retype_password">กรุณากรอกรหัสผ่านอีกครั้ง!</string>
+    <string name="password_unmatched">รหัสผ่านไม่ตรงกัน กรุณากรอกรหัสผ่านให้ถูกต้อง!</string>
+    <string name="register_failed_used">การลงทะเบียนไม่สำเร็จ กรุณาเลือกชื่อผู้ใช้อีกครั้ง!</string>
+    <string name="register_success">ลงทะเบียนเรีบร้อยแล้ว!</string>
+    <string name="register_failed_fatal">การลงทะเบียนไม่สำเร็จ เกิดปัญหาขณะลงทะเบียน!</string>
+    <string name="creating_account">กำลังสร้างบัญชีผู้ใช้ กรุณารอสักครู่</string>
+
+
 </resources>

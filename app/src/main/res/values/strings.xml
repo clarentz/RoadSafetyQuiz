@@ -30,6 +30,7 @@
     <string name="confirm_stop">Do you want to stop?</string>
     <string name="your_score">Your score: </string>
     <string name="select_position_of">Select position of </string>
+    <string name="is_in">is in</string>
 
 
     <!--NotificationActivity-->
@@ -68,7 +69,7 @@
 
 
 
-    <string name="Like"></string>
+    <string name="Like">Like</string>
 
 
     <!--LoginActivity-->

@@ -98,7 +98,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         for (int i = 0; i < imagesArrayList.size(); i++){
             if (!imagesArrayList.get(i).getSub_admin_area().equals(question_material_MC.getSub_admin_area())){
                 sub_list1.add(imagesArrayList.get(i));
-                Log.i("image 1", imagesArrayList.get(i).getSub_admin_area());
+               // Log.i("image 1", imagesArrayList.get(i).getSub_admin_area());
             }
         }
 
@@ -131,7 +131,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
 
         switch (MC_RANDOM_PLACE){
             case 0:
-                String strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
+                String strQuestion = getString(R.string.selected_position) + " " + question_material_MC.getRoad_name() + " :";
 
                 txtQuestionMC.setText(strQuestion);
                 Toast.makeText(this, question_material_MC.getIssue(), Toast.LENGTH_SHORT).show();
@@ -172,7 +172,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
 
 
             case 1:
-                strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
+                strQuestion = getString(R.string.select_position_of) + " " + question_material_MC.getRoad_name() + " :";
                 txtQuestionMC.setText(strQuestion);
 
                 btnB.setText(question_material_MC.getSub_admin_area());
@@ -206,7 +206,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
                 });
 
             case 2:
-                strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
+                strQuestion = getString(R.string.select_position_of) + " " + question_material_MC.getRoad_name() + " :";
                 txtQuestionMC.setText(strQuestion);
 
                 btnC.setText(question_material_MC.getSub_admin_area());
@@ -241,7 +241,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
 
 
             case 3:
-                strQuestion = R.string.select_position_of + question_material_MC.getRoad_name() + " :";
+                strQuestion = getString(R.string.select_position_of) + " " + question_material_MC.getRoad_name() + " :";
                 txtQuestionMC.setText(strQuestion);
 
                 btnD.setText(question_material_MC.getSub_admin_area());
@@ -277,6 +277,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
                 answered_question++;
 
         }
+
 
 
 
