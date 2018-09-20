@@ -82,18 +82,18 @@ public class GameOverActivity extends AppCompatActivity {
 
         switch (from_game) {
             case 1:
-                strFromGame = String.valueOf(R.string.multiple_choice_result);
-                strScore =  String.valueOf(R.string.correct_answer)+ Integer.toString(score);
-                strAnswered = String.valueOf(R.string.number_of_question)+ Integer.toString(answered);
+                strFromGame = getString(R.string.multiple_choice_result);
+                strScore =  getString(R.string.correct_answer)+ Integer.toString(score);
+                strAnswered = getString(R.string.number_of_question)+ Integer.toString(answered);
 
                 txtScore.setText(strScore);
                 txtFromGame.setText(strFromGame);
                 txtAnswered.setText(strAnswered);
                 break;
             case 2:
-                strFromGame = String.valueOf(R.string.yes_no_result);
-                strScore = String.valueOf(R.string.correct_answer) + Integer.toString(score);
-                strAnswered = String.valueOf(R.string.number_of_question)+ Integer.toString(answered);
+                strFromGame = getString(R.string.yes_no_result);
+                strScore = getString(R.string.correct_answer) + Integer.toString(score);
+                strAnswered = getString(R.string.number_of_question)+ Integer.toString(answered);
 
                 txtScore.setText(strScore);
                 txtFromGame.setText(strFromGame);

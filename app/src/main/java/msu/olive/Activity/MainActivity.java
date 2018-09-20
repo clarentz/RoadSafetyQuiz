@@ -33,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
     int id_user;
     String data;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         data = getIntent().getStringExtra("data");
+        Log.i("data", data);
         bumbum();
         requestLocationPermission();
         readData(id_user);
@@ -91,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(data);
             id_user = jsonObject.getInt("id");
+            username = jsonObject.getString("username");
+            Log.i("username", username);
             main_username.setText(jsonObject.getString("username"));
             if (jsonObject.getString("avatar").length() != 0) {
                 Log.i("Image URL: ", Server.ImageURL + jsonObject.getString("avatar"));

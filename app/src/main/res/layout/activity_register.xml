@@ -10,12 +10,14 @@
 
     <ImageView
 
+        android:id="@+id/imgAvatarPreview"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:paddingBottom="20dp"
-        android:paddingTop="20dp"
-        android:src="@drawable/ic_sign_up" />
+        android:paddingTop="20dp"/>
+        <!--android:src="@drawable/ic_avatar" -->
+
 
     <LinearLayout
         android:gravity="center"

@@ -76,7 +76,7 @@ public class YesNoGameActivity extends AppCompatActivity {
 
         answered_question ++;
 
-        txtScoreYN.setText(R.string.score + YNScore);
+        txtScoreYN.setText(getString(R.string.score) + YNScore);
 
         Random random = new Random();
         int random_number_question = random.nextInt(2);
@@ -85,7 +85,7 @@ public class YesNoGameActivity extends AppCompatActivity {
         Image question_material = imagesArrayListYN.get(random_number_answer);
 
 
-        show_correct_answer = question_material.getRoad_name() + " is in " + question_material.getSub_admin_area();
+        show_correct_answer = question_material.getRoad_name() + " " + getString(R.string.is_in) + " " + question_material.getSub_admin_area();
 
         switch (random_number_question){
             case 1:
@@ -95,7 +95,7 @@ public class YesNoGameActivity extends AppCompatActivity {
                 Glide.with(this)
                         .load(image_url)
                         .into(imgQuestionYN);
-                txtQuestionYN.setText(question_material.getRoad_name() + " is in " + question_material.getSub_admin_area());
+                txtQuestionYN.setText(question_material.getRoad_name() + " " + getString(R.string.is_in) + " " + question_material.getSub_admin_area());
                 btnYes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -112,7 +112,7 @@ public class YesNoGameActivity extends AppCompatActivity {
                 Random random1 = new Random();
                 int random_wrong_answer = random1.nextInt(imagesArrayListYN.size());
                 Image wrong_question_material = imagesArrayListYN.get(random_wrong_answer);
-                txtQuestionYN.setText(question_material.getRoad_name() + " is in " + wrong_question_material.getSub_admin_area());
+                txtQuestionYN.setText(question_material.getRoad_name() + " " + getString(R.string.is_in) + " " +  wrong_question_material.getSub_admin_area());
                 String image_url1 =//"http://cdn.hoahoctro.vn/uploads/2018/04/5ae29976bc282-unnamed.jpg";
                         host+"/"+question_material.getUrl();
                 // Toast.makeText(YesNoGameActivity.this, image_url1, Toast.LENGTH_SHORT).show();
@@ -199,7 +199,7 @@ public class YesNoGameActivity extends AppCompatActivity {
         correct_toast.setView(correct_answer_toast);
         correct_toast.show();
 
-        txtScoreYN.setText(R.string.score + YNScore);
+        txtScoreYN.setText(getString(R.string.score) + YNScore);
         play();
     }
 
@@ -213,7 +213,7 @@ public class YesNoGameActivity extends AppCompatActivity {
         wrong_toast.show();
 
 
-        txtScoreYN.setText(R.string.score + YNScore);
+        txtScoreYN.setText(getString(R.string.score) + YNScore);
         play();
     }
 }

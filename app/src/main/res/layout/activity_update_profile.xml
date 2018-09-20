@@ -12,30 +12,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imgAvatarPreview"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnAvatarLibrary"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/pick_from_gallery" />
-
-            <Button
-                android:id="@+id/btnAvatarCamera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/take_a_picture" />
-
-        </LinearLayout>
+            android:id="@+id/imgAvatarPreview"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_gravity="center_horizontal"/>
 
 
         <LinearLayout
@@ -55,7 +35,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edBirthday"
+            android:id="@+id/edAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

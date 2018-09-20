@@ -48,4 +48,7 @@
     <string name="register_success">ลงทะเบียนเรีบร้อยแล้ว</string>
     <string name="register_failed_fatal">การลงทะเบียนไม่สำเร็จ เกิดปัญหาขณะลงทะเบียน</string>
     <string name="creating_account">"กำลังสร้างบัญชีผู้ใช้ กรุณารอสักครู่ "</string>
+    <string name="title_activity_maps">แผนที่</string>
+    <string name="is_in">อยู่ใน</string>
+
 </resources>

@@ -35,5 +35,6 @@ public class Server {
     public static String CreateScoreURL = "http://"+ HOST + "/create_score.php";
     public static String GetHighScoreMCURL = "http://"+ HOST + "/get_highest_score.php";
     public static String GetHighScoreYNURL = "http://" + HOST + "/get_highest_score_game2.php";
+    public static String Register_AvatarURL = "http://" + HOST + "/register_avatar.php";
 
 }

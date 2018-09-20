@@ -327,24 +327,24 @@ public class UploadActivity extends AppCompatActivity {
     private void upload() {
         class UploadImage extends AsyncTask<Bitmap, Void, String> {
 
-            ProgressDialog loading;
-            RequestHandler rh = new RequestHandler();
+            ProgressDialog progressDialog;
+            RequestHandler requestHandler = new RequestHandler();
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(UploadActivity.this,
+                progressDialog = ProgressDialog.show(UploadActivity.this,
                         getApplicationContext().getResources().getString(R.string.uploading),
                         null,
                         true,
                         true);
-                loading.setCanceledOnTouchOutside(false);
+                progressDialog.setCanceledOnTouchOutside(false);
             }
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                loading.dismiss();
+                progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
                 finish();
 
@@ -408,7 +408,7 @@ public class UploadActivity extends AppCompatActivity {
                 data.put(UPLOAD_KEY_COUNTRY, country);
                 data.put(UPLOAD_KEY_ISSUE, strRoadSafetyIssue);
 
-                result = rh.sendPostRequest(Server.UploadImage_URL, data);
+                result = requestHandler.sendPostRequest(Server.UploadImage_URL, data);
                 return result;
             }
         }

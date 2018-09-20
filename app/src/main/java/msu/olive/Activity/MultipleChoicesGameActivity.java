@@ -82,7 +82,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
     }
 
     private void play() {
-        txtScoreMC.setText(R.string.your_score + MCscore);
+        txtScoreMC.setText(getString(R.string.your_score) + MCscore);
 
         Random random = new Random();
 
@@ -314,7 +314,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         correct_toast.setView(correct_answer_toast);
         correct_toast.show();
 
-        txtScoreMC.setText(R.string.score + MCscore);
+        txtScoreMC.setText(getString(R.string.score) + MCscore);
         play();
     }
 
@@ -328,7 +328,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         wrong_toast.show();
 
 
-        txtScoreMC.setText(R.string.score + MCscore);
+        txtScoreMC.setText(getString(R.string.score) + MCscore);
         play();
     }
 }

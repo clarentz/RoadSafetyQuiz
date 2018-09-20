@@ -1,8 +1,11 @@
 package msu.olive.Activity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -21,6 +24,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import org.json.JSONArray;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -49,7 +54,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
     private ImageView imgAvatarPreview;
     private Spinner spnGender;
     private Button btnAvatarCamera, btnAvatarLibrary;
-    private EditText edBirthday,edInfo;
+    private EditText edAge, edInfo;
 
     private Bitmap bitmap, resizedBitmap;
     private String mCurrentPhotoPath;
@@ -57,12 +62,14 @@ public class UpdateProfileActivity extends AppCompatActivity {
     private Button btnUpdateInfo;
     private String uploadImage;
 
-    private String birthday, info, gender;
+    private String username, age, info, gender;
+    private int id_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
+
 
         addControls();
         addEvents();
@@ -70,24 +77,6 @@ public class UpdateProfileActivity extends AppCompatActivity {
     }
 
     private void addEvents() {
-        btnAvatarCamera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
-                    openCameraNougat();
-                } else {
-                    openCamera();
-                }
-            }
-        });
-
-
-        btnAvatarLibrary.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLibrary();
-            }
-        });
 
         btnUpdateInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,12 +97,42 @@ public class UpdateProfileActivity extends AppCompatActivity {
             }
         });
 
+        imgAvatarPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                chooseAvatar();
+            }
+        });
 
 
     }
 
+    private void chooseAvatar() {
+        AlertDialog.Builder selectMethod = new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.select_method))
+                .setItems(R.array.select_method, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0) {
+                            openLibrary();
+                        }
+                        if (which == 1) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                openCameraNougat();
+                            } else {
+                                openCamera();
+                            }
+
+                        }
+                    }
+                });
+
+        selectMethod.show();
+    }
+
+
     private void updateUserInfo() {
-        class UserInfo extends AsyncTask<Bitmap, Void, String>{
+        class UserInfo extends AsyncTask<Bitmap, Void, String> {
 
             ProgressDialog dialog;
             RequestHandler requestHandler = new RequestHandler();
@@ -122,10 +141,10 @@ public class UpdateProfileActivity extends AppCompatActivity {
             protected void onPreExecute() {
                 super.onPreExecute();
                 dialog = ProgressDialog.show(UpdateProfileActivity.this,
-                                                     getApplicationContext().getResources().getString(R.string.updating_info),
-                                                    null,
-                                                    true,
-                                                    true);
+                        getApplicationContext().getResources().getString(R.string.updating_info),
+                        null,
+                        true,
+                        true);
 
             }
 
@@ -134,6 +153,7 @@ public class UpdateProfileActivity extends AppCompatActivity {
                 super.onPostExecute(s);
                 dialog.dismiss();
                 Toast.makeText(UpdateProfileActivity.this, s, Toast.LENGTH_SHORT).show();
+                Log.i("result", s);
                 finish();
             }
 
@@ -147,21 +167,22 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
                 String id_user = String.valueOf(getIntent().getIntExtra("id_user", -1));
 
-                birthday = edBirthday.getText().toString();
+                age = edAge.getText().toString();
                 info = edInfo.getText().toString();
 
                 HashMap<String, String> data = new HashMap<>();
 
-                if (birthday == null){
-                    birthday = " ";
+                if (age == null) {
+                    age = " ";
                 }
 
-                if (info == null){
+                if (info == null) {
                     info = " ";
                 }
 
+                data.put("id_user", id_user);
                 data.put("avatar", uploadImage);
-                data.put("birthday", birthday);
+                data.put("age", age);
                 data.put("info", info);
                 data.put("gender", gender);
 
@@ -186,29 +207,29 @@ public class UpdateProfileActivity extends AppCompatActivity {
     }
 
     private void openLibrary() {
-        Intent intentPick = new Intent(Intent.ACTION_PICK);
+        Intent intentPick = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intentPick, OPEN_LIBRARY);
     }
 
 
     private void openCamera() {
         Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (intentCamera.resolveActivity(getPackageManager()) != null){
+        if (intentCamera.resolveActivity(getPackageManager()) != null) {
             File photoFile = null;
-            try{
+            try {
                 photoFile = createImageFile();
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            if (photoFile !=null){
+            if (photoFile != null) {
                 intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
                 startActivityForResult(intentCamera, OPEN_CAMERA_MARSHMALLOW);
             }
         }
     }
 
-    private File createImageFile() throws  IOException{
+    private File createImageFile() throws IOException {
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
@@ -233,12 +254,11 @@ public class UpdateProfileActivity extends AppCompatActivity {
             File photoFile = null;
             try {
                 photoFile = createImageFile();
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
                 return;
             }
-            Uri photoUri = FileProvider.getUriForFile(this, getPackageName() +".provider", photoFile);
+            Uri photoUri = FileProvider.getUriForFile(this, getPackageName() + ".provider", photoFile);
             pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
             startActivityForResult(pictureIntent, OPEN_CAMERA_NOUGAT);
         }
@@ -246,7 +266,13 @@ public class UpdateProfileActivity extends AppCompatActivity {
 
     private void addControls() {
 
+        id_user = getIntent().getIntExtra("id_user", -1);
+        username = getIntent().getStringExtra("username");
+        //Log.i("username" , username);
+
+        bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_avatar);
         imgAvatarPreview = findViewById(R.id.imgAvatarPreview);
+        imgAvatarPreview.setImageBitmap(bitmap);
 
         spnGender = findViewById(R.id.spnGender);
         ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender,
@@ -254,90 +280,92 @@ public class UpdateProfileActivity extends AppCompatActivity {
         genderAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spnGender.setAdapter(genderAdapter);
 
-        edBirthday = findViewById(R.id.edBirthday);
+        edAge = findViewById(R.id.edAge);
         edInfo = findViewById(R.id.edInfo);
-        btnAvatarCamera = findViewById(R.id.btnAvatarCamera);
-        btnAvatarLibrary = findViewById(R.id.btnAvatarLibrary);
         btnUpdateInfo = findViewById(R.id.btnUpdateInfo);
     }
 
     @Override
 
 
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-            if (requestCode == OPEN_LIBRARY && resultCode == RESULT_OK){
-                selectedImage = data.getData();
+        if (requestCode == OPEN_LIBRARY && resultCode == RESULT_OK) {
+            selectedImage = data.getData();
 
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
-                    if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE) {
 
-                        int dstWidth = (int) (bitmap.getWidth() * 0.8);
-                        int dstHeight = (int) (bitmap.getHeight() * 0.8);
+                    int dstWidth = (int) (bitmap.getWidth() * 0.8);
+                    int dstHeight = (int) (bitmap.getHeight() * 0.8);
 
-                        resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth,dstHeight,true);
-                        bitmap = resizedBitmap;
+                    resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth, dstHeight, true);
+                    bitmap = resizedBitmap;
 
-                    }
-                    imgAvatarPreview.setImageBitmap(bitmap);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
+                imgAvatarPreview.setImageBitmap(bitmap);
+
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+        }
 
 
-            if (requestCode == OPEN_CAMERA_MARSHMALLOW && resultCode == RESULT_OK ){
-                try{
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
-                    if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
+        if (requestCode == OPEN_CAMERA_MARSHMALLOW && resultCode == RESULT_OK) {
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
+                if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE) {
 
-                        int dstWidth = (int) (bitmap.getWidth() * 0.8);
-                        int dstHeight = (int) (bitmap.getHeight() * 0.8);
+                    int dstWidth = (int) (bitmap.getWidth() * 0.8);
+                    int dstHeight = (int) (bitmap.getHeight() * 0.8);
 
-                        resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth,dstHeight,true);
-                        bitmap = resizedBitmap;
+                    resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth, dstHeight, true);
+                    bitmap = resizedBitmap;
 
-                    }
-                    imgAvatarPreview.setImageBitmap(bitmap);
                 }
-                catch (IOException e){
-                    e.printStackTrace();
-                }
-                // this return a small thumbnail image
+                imgAvatarPreview.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            // this return a small thumbnail image
 
 //            Bundle extras = data.getExtras();
 //            Bitmap imageBitmap = (Bitmap) extras.get("data");
 //            imgPreview.setImageBitmap(imageBitmap);
-            }
-
-
-            if (requestCode == OPEN_CAMERA_NOUGAT && resultCode == RESULT_OK){
-                try {
-                    bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
-
-                    if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
-
-                        int dstWidth = (int) (bitmap.getWidth() * 0.8);
-                        int dstHeight = (int) (bitmap.getHeight() * 0.8);
-
-                        resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth,dstHeight,true);
-                        bitmap = resizedBitmap;
-
-                    }
-                    imgAvatarPreview.setImageBitmap(bitmap);
-
-
-
-
-                }catch (IOException e){
-                    e.printStackTrace();
-                    Log.e("error", e.toString());
-                }
-            }
-
-
         }
+
+
+        if (requestCode == OPEN_CAMERA_NOUGAT && resultCode == RESULT_OK) {
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
+
+                if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE) {
+
+                    int dstWidth = (int) (bitmap.getWidth() * 0.8);
+                    int dstHeight = (int) (bitmap.getHeight() * 0.8);
+
+                    resizedBitmap = Bitmap.createScaledBitmap(bitmap, dstWidth, dstHeight, true);
+                    bitmap = resizedBitmap;
+
+                }
+                imgAvatarPreview.setImageBitmap(bitmap);
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.e("error", e.toString());
+            }
+        }
+
+
+    }
+
+//    private void readData(String response){
+//        try {
+//            JSONArray
+//        }
+//    }
+
 }
