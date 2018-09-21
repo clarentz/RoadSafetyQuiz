@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -108,8 +109,12 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
-        requestCameraPermission();
-        requestAccessPermission();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            requestCameraPermission();
+            requestAccessPermission();
+        }
+
 
 
         addControls();
@@ -521,6 +526,17 @@ public class UploadActivity extends AppCompatActivity {
 
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+
+                int resizeBitmapWidth;
+                int resizeBitmapHeight;
+
+                if ( 4000 < bitmap.getHeight() && bitmap.getHeight() < 5000){
+                    resizeBitmapHeight = (int) (bitmap.getHeight() * 0.6);
+                    resizeBitmapWidth = (int) (bitmap.getWidth() * 0.6);
+                    bitmap = Bitmap.createBitmap(Bitmap.createScaledBitmap(bitmap, resizeBitmapWidth, resizeBitmapHeight, true));
+
+                }
+
                 if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
 
                     int dstWidth = (int) (bitmap.getWidth() * 0.8);
@@ -541,6 +557,19 @@ public class UploadActivity extends AppCompatActivity {
         if (requestCode == OPEN_CAMERA_MARSHMALLOW && resultCode == RESULT_OK ){
             try{
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
+
+
+                int resizeBitmapWidth;
+                int resizeBitmapHeight;
+
+
+                if ( 4000 < bitmap.getHeight() && bitmap.getHeight() < 5000){
+                    resizeBitmapHeight = (int) (bitmap.getHeight() * 0.6);
+                    resizeBitmapWidth = (int) (bitmap.getWidth() * 0.6);
+                    bitmap = Bitmap.createBitmap(Bitmap.createScaledBitmap(bitmap, resizeBitmapWidth, resizeBitmapHeight, true));
+
+                }
+
                 if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
 
                     int dstWidth = (int) (bitmap.getWidth() * 0.8);
@@ -566,6 +595,18 @@ public class UploadActivity extends AppCompatActivity {
         if (requestCode == OPEN_CAMERA_NOUGAT && resultCode == RESULT_OK){
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), Uri.parse(mCurrentPhotoPath));
+
+
+                int resizeBitmapWidth;
+                int resizeBitmapHeight;
+
+
+                if ( 4000 < bitmap.getHeight() && bitmap.getHeight() < 5000){
+                    resizeBitmapHeight = (int) (bitmap.getHeight() * 0.6);
+                    resizeBitmapWidth = (int) (bitmap.getWidth() * 0.6);
+                    bitmap = Bitmap.createBitmap(Bitmap.createScaledBitmap(bitmap, resizeBitmapWidth, resizeBitmapHeight, true));
+
+                }
 
                 if (bitmap.getHeight() > GL_MAX_TEXTURE_SIZE || bitmap.getWidth() > GL_MAX_TEXTURE_SIZE){
 

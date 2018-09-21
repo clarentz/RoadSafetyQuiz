@@ -2,6 +2,7 @@ package msu.olive.Activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
@@ -42,7 +43,11 @@ public class MainActivity extends AppCompatActivity {
         data = getIntent().getStringExtra("data");
         Log.i("data", data);
         bumbum();
-        requestLocationPermission();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            requestLocationPermission();
+        }
+
         readData(id_user);
     }
 

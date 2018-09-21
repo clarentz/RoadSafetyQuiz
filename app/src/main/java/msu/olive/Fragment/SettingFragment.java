@@ -49,8 +49,8 @@ public class SettingFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), UpdateProfileActivity.class);
                 intent.putExtra("id_user", getArguments().getInt("id_user", -1));
-                username = getArguments().getString("username", "string");
-                intent.putExtra("username", username);
+                //username = getArguments().getString("username", "You");
+                intent.putExtra("username", getArguments().getString("username", "You"));
                 Log.i("username", username);
                 startActivity(intent);
             }
