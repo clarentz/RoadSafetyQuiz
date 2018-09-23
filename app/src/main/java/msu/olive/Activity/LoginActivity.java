@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 import msu.olive.R;
 import msu.olive.Server.RequestHandler;
@@ -42,6 +43,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Locale locale = getResources().getConfiguration().locale;
+        Log.e("country", locale.getCountry());
+
         bumbum();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){

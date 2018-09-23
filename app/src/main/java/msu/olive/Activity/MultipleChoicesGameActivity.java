@@ -91,7 +91,7 @@ public class MultipleChoicesGameActivity extends AppCompatActivity {
         MC_RANDOM_QUESTION = random.nextInt(imagesArrayList.size());
         final Image question_material_MC = imagesArrayList.get(MC_RANDOM_QUESTION);
 
-        show_correct_answer = question_material_MC.getRoad_name() + " is in " + question_material_MC.getSub_admin_area();
+        show_correct_answer = question_material_MC.getRoad_name() + " " + getResources().getString(R.string.is_in)+" " + question_material_MC.getSub_admin_area();
         //need a check if Thai or Eng
 
         final ArrayList<Image> sub_list1 = new ArrayList<>();

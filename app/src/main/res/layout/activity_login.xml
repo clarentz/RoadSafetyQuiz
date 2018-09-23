@@ -108,7 +108,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:background="@color/yellowish"
-                android:text="Sign in"
+                android:text="@string/log_in"
                 android:textColor="#2f3d08"
                 android:textStyle="bold" />
 
@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:background="#00000000"
                 android:paddingTop="10dp"
-                android:text="Register"
+                android:text="@string/Register"
                 android:gravity="center"
                 android:textColor="#767312"
                 android:textSize="18dp"

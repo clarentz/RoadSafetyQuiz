@@ -89,8 +89,26 @@
     <string name="select_method">Select avatar from</string>
 
     <string name="function_not_available">This function is not available now, please try again later</string>
-
-
+    <string name="correct">Correct !</string>
+    <string name="wrong">Wrong!</string>
+    <string name="personal_info">Personal Information</string>
+    <string name="change_pass">Change Password</string>
+    <string name="data_syncing">Data Syncing</string>
+    <string name="game">Games</string>
+    <string name="multiple_choices">Multiple Choices</string>
+    <string name="Yes_No">Yes or No</string>
+    <string name="hint_status">Say something about this picture</string>
+    <string name="road_name">Road name</string>
+    <string name="sub_admin_area">District</string>
+    <string name="admin_area">City/Province</string>
+    <string name="Country">country</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="no_data">No Data</string>
+    <string name="share_score">Share Score!</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="back">back</string>
 
 
 </resources>

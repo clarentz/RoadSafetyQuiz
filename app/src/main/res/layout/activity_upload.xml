@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Say something about this picture"
+                    android:hint="@string/hint_status"
                     android:inputType="textMultiLine"
                     android:textColor="@color/darkoliveish"
                     android:layout_marginBottom="5dp"/>
@@ -124,7 +124,7 @@
                             android:layout_weight="1"
                             android:textColor="@color/darkoliveish"
                             android:ems="10"
-                            android:hint="Road name" />
+                            android:hint="@string/road_name" />
 
                         <EditText
                             android:id="@+id/edSubAdminArea"
@@ -133,7 +133,7 @@
                             android:layout_weight="1"
                             android:textColor="@color/darkoliveish"
                             android:ems="10"
-                            android:hint="District"
+                            android:hint="@string/sub_admin_area"
                             />
 
                     </LinearLayout>
@@ -149,7 +149,7 @@
                             android:layout_weight="1"
                             android:textColor="@color/darkoliveish"
                             android:ems="10"
-                            android:hint="City/Province" />
+                            android:hint="@string/admin_area" />
 
                         <EditText
                             android:id="@+id/edCountry"
@@ -158,7 +158,7 @@
                             android:layout_weight="1"
                             android:textColor="@color/darkoliveish"
                             android:ems="10"
-                            android:hint="Country" />
+                            android:hint="@string/Country" />
                     </LinearLayout>
                 </LinearLayout>
 
