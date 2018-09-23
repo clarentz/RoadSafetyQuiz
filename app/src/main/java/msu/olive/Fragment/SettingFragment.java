@@ -47,12 +47,13 @@ public class SettingFragment extends Fragment {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), UpdateProfileActivity.class);
-                intent.putExtra("id_user", getArguments().getInt("id_user", -1));
-                //username = getArguments().getString("username", "You");
-                intent.putExtra("username", getArguments().getString("username", "You"));
-                Log.i("username", username);
-                startActivity(intent);
+
+                Toast.makeText(getActivity(), R.string.function_not_available, Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(getContext(), UpdateProfileActivity.class);
+//                intent.putExtra("id_user", getArguments().getInt("id_user", -1));
+//                //username = getArguments().getString("username", "You");
+//                intent.putExtra("username", getArguments().getString("username", "You"));
+//                startActivity(intent);
             }
         });
         return view;

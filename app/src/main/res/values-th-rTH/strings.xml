@@ -50,5 +50,7 @@
     <string name="creating_account">"กำลังสร้างบัญชีผู้ใช้ กรุณารอสักครู่ "</string>
     <string name="title_activity_maps">แผนที่</string>
     <string name="is_in">อยู่ใน</string>
+    <string name="select_method">เลือกจาก</string>
+    <string name="function_not_available">ฟังก์ชันนี้ไม่สามารถใช้ได้ในขณะนี้โปรดลองอีกครั้งในภายหลัง</string>
 
 </resources>

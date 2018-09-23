@@ -88,6 +88,8 @@
     <string name="creating_account">Creating account, please wait</string>
     <string name="select_method">Select avatar from</string>
 
+    <string name="function_not_available">This function is not available now, please try again later</string>
+
 
 
 

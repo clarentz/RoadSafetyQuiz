@@ -1,10 +1,12 @@
 package msu.olive.Activity;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -37,6 +39,9 @@ import msu.olive.Server.Server;
 
 public class RegisterActivity extends AppCompatActivity {
 
+
+    private int CAMERA_REQUEST_PERMISSION = 100;
+
     EditText register_username, register_password, register_retype, register_info;
     Button btnRegister;
 
@@ -53,6 +58,10 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            requestCameraPermission();
+            requestAccessPermission();
+        }
         bumbum();
     }
 
@@ -333,6 +342,27 @@ public class RegisterActivity extends AppCompatActivity {
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
         return encodedImage;
+    }
+
+
+    private void requestCameraPermission() {
+        if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_PERMISSION);
+        }
+
+    }
+
+    private void requestAccessPermission() {
+
+        //request write external permission to get full size image from camera
+        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 99);
+        }
+        //request write internal permission to get from library
+
+        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        }
     }
 
 
