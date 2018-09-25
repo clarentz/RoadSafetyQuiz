@@ -52,5 +52,25 @@
     <string name="is_in">อยู่ใน</string>
     <string name="select_method">เลือกจาก</string>
     <string name="function_not_available">ฟังก์ชันนี้ไม่สามารถใช้ได้ในขณะนี้โปรดลองอีกครั้งในภายหลัง</string>
+    <string name="correct">ถูก</string>
+    <string name="wrong">ผิด</string>
+    <string name="personal_info">ข้อมูลส่วนตัว</string>
+    <string name="change_pass">เปลี่ยนรหัสผ่าน</string>
+    <string name="data_syncing">กำลังอัพเดทข้อมูล</string>
+    <string name="game">เกม</string>
+    <string name="multiple_choices">แบบเลือกตอบ</string>
+    <string name="Yes_No">แบบถูกผิด</string>
+    <string name="hint_status">อธิบายเกี่ยวกับภาพ</string>
+    <string name="road_name">ถนน</string>
+    <string name="sub_admin_area">อำเภอหรือตำบล</string>
+    <string name="admin_area">จังหวัด</string>
+    <string name="Country">ประเทศ</string>
+    <string name="username">รหัสผู้ใช้</string>
+    <string name="password">รหัสผ่าน</string>
+    <string name="remember_me">จำข้อมูลฉัน</string>
+    <string name="no_data">ไม่มีข้อมูล</string>
+    <string name="share_score">แชร์คะแนน</string>
+    <string name="leaderboard">กระดานคะแนน</string>
+    <string name="back">กลับ</string>
 
 </resources>

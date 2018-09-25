@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -34,16 +35,8 @@
                 android:layout_gravity="center"
                 android:paddingBottom="0dp"
                 android:paddingTop="0dp"
-                android:src="@drawable/ic_olive_logo" />
-
-            <ImageView
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:src="@drawable/olive_text"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="-70dp"
-                android:layout_gravity="center"/>
+                android:src="@drawable/ic_olive_logo"
+                app:srcCompat="@mipmap/ic_launcher" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -57,7 +50,7 @@
                     android:background="@drawable/x_box_outline"
                     android:drawableLeft="@drawable/ic_avatar"
                     android:drawablePadding="5dp"
-                    android:hint="Username"
+                    android:hint="@string/username"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:paddingLeft="10dp"
@@ -80,7 +73,7 @@
                     android:background="@drawable/x_box_outline"
                     android:drawableLeft="@drawable/ic_lock"
                     android:drawablePadding="5dp"
-                    android:hint="Password"
+                    android:hint="@string/password"
                     android:imeActionId="6"
                     android:imeActionLabel="Sign in"
                     android:imeOptions="actionUnspecified"
@@ -96,7 +89,7 @@
             <CheckBox
                 android:id="@+id/login_remember_me_checkbox"
                 android:textColor="#2f3d08"
-                android:text="Remember me"
+                android:text="@string/remember_me"
                 android:layout_gravity="center"
                 android:layout_width="150dp"
                 android:layout_height="30dp" />
