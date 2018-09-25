@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void readData(final int id_user) {
         fragmentManager = getSupportFragmentManager();
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(fragmentManager, id_user);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(fragmentManager, id_user, username);
         pager.setAdapter(viewPagerAdapter);
         viewPagerAdapter.notifyDataSetChanged();
         tabLayout.setupWithViewPager(pager);
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             main_username.setText(jsonObject.getString("username"));
             if (jsonObject.getString("avatar").length() != 0) {
                 Log.i("Image URL: ", Server.ImageURL + jsonObject.getString("avatar"));
-                Glide.with(getApplicationContext()).load(Server.ImageURL + jsonObject.getString("avatar")).placeholder(R.mipmap.ic_image_thumbnail).into(main_avatar);
+               Picasso.with(getApplicationContext()).load(Server.ImageURL + jsonObject.getString("avatar")).placeholder(R.mipmap.ic_image_thumbnail).into(main_avatar);
             }
         } catch (JSONException e) {
             e.printStackTrace();

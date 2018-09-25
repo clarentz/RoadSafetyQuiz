@@ -13,11 +13,13 @@ import msu.olive.Fragment.UserfeedFragment;
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     String data;
     int id_user;
+    String username;
 
-    public ViewPagerAdapter(FragmentManager fragmentManager, int id_user) {
+    public ViewPagerAdapter(FragmentManager fragmentManager, int id_user, String username) {
         super(fragmentManager);
         this.data = data;
         this.id_user = id_user;
+        this.username = username;
     }
 
     @Override
@@ -46,6 +48,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 fragment = new SettingFragment();
                 Bundle bundle3 = new Bundle();
                 bundle3.putInt("id_user", id_user);
+                bundle3.putString("username", username);
                 fragment.setArguments(bundle3);
                 break;
         }
