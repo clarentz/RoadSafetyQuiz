@@ -36,7 +36,7 @@
                 android:background="@drawable/x_box_outline"
                 android:drawableLeft="@drawable/ic_info"
                 android:paddingLeft="30dp"
-                android:text="Personal Infomation"
+                android:text="@string/personal_info"
                 android:textColor="@color/darkoliveish" />
 
             <Button
@@ -47,7 +47,7 @@
                 android:background="@drawable/x_box_outline"
                 android:drawableLeft="@drawable/ic_change_password"
                 android:paddingLeft="30dp"
-                android:text="Change Password"
+                android:text="@string/change_pass"
                 android:textColor="@color/darkoliveish" />
 
 

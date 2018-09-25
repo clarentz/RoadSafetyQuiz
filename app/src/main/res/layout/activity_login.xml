@@ -35,7 +35,7 @@
                 android:layout_gravity="center"
                 android:paddingBottom="0dp"
                 android:paddingTop="0dp"
-                android:src="@drawable/ic_olive_logo"
+                android:src="@mipmap/ic_launcher"
                 app:srcCompat="@mipmap/ic_launcher" />
 
             <android.support.design.widget.TextInputLayout

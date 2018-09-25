@@ -145,9 +145,25 @@ public class UploadActivity extends AppCompatActivity {
         edAdminArea = findViewById(R.id.edAdminArea);
         edCountry = findViewById(R.id.edCountry);
 
+
+        String safetyIssue[] = {getString(R.string.choose_issue),
+                          getString(R.string.road_crossing),
+                          getString(R.string.crossing_bridges),
+                          getString(R.string.cycling),
+                          getString(R.string.pedestrian),
+                          getString(R.string.driving),
+                          getString(R.string.passenger)
+        };
+
         spnIssues = findViewById(R.id.spnIssues);
-        ArrayAdapter<CharSequence> roadSafetyAdapter = ArrayAdapter.createFromResource(this,
-                R.array.road_safety_issues, android.R.layout.simple_spinner_item);
+//        ArrayAdapter<CharSequence> roadSafetyAdapter = ArrayAdapter.createFromResource(this,
+//                R.array.road_safety_issues, android.R.layout.simple_spinner_item);
+//        roadSafetyAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+//        spnIssues.setAdapter(roadSafetyAdapter);
+
+        ArrayAdapter<String> roadSafetyAdapter = new ArrayAdapter<String>(this,
+                                                                                android.R.layout.simple_spinner_item,
+                                                                                safetyIssue);
         roadSafetyAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spnIssues.setAdapter(roadSafetyAdapter);
 

@@ -18,7 +18,7 @@
             android:textAlignment="center"
             android:textSize="25dp"
             android:textStyle="bold"
-            android:text="Games"
+            android:text="@string/game"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
@@ -28,13 +28,14 @@
             android:layout_gravity="center"
             android:padding="10dp"
             android:src="@drawable/mcgameicon" />
+
         <TextView
-            android:textColor="@color/darkoliveish"
-            android:textAlignment="center"
-            android:textSize="16dp"
-            android:text="Multiple Choices"
             android:layout_width="200dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/multiple_choices"
+            android:textAlignment="center"
+            android:textColor="@color/darkoliveish"
+            android:textSize="16dp" />
         <ImageView
             android:id="@+id/games_yngame"
             android:layout_width="200dp"
@@ -46,7 +47,7 @@
             android:textColor="@color/darkoliveish"
             android:textAlignment="center"
             android:textSize="16dp"
-            android:text="Yes or No"
+            android:text="@string/Yes_No"
             android:layout_width="200dp"
             android:layout_height="wrap_content" />
         <!--

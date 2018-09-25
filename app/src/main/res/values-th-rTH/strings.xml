@@ -72,5 +72,15 @@
     <string name="share_score">แชร์คะแนน</string>
     <string name="leaderboard">กระดานคะแนน</string>
     <string name="back">กลับ</string>
+    <string name="choose_issue">เลือกหัวข้อความปลอดภัยที่เกี่ยวข้อง</string>
+    <string name="driving">การขับรถยนต์บนท้องถนน</string>
+    <string name="road_crossing">การข้ามถนน</string>
+    <string name="pedestrian">การใช้ทางเท้า</string>
+    <string name="cycling">"การใช้รถจักรยาน/รถจักรยานยนต์ "</string>
+    <string name="crossing_bridges">การใช่สะพานลอย</string>
+    <string name="passenger">การเป็นผู้โดยสาร</string>
+    <string name="post">หุ้น</string>
+    <string name="male">ชาย</string>
+    <string name="female">หญิง</string>
 
 </resources>

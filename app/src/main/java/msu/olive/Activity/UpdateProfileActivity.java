@@ -327,9 +327,13 @@ public class UpdateProfileActivity extends AppCompatActivity {
         //imgAvatarPreview.setImageBitmap(bitmap);
 
 
+        String gender[] = {getString(R.string.male), getString(R.string.female)};
+
         spnGender = findViewById(R.id.spnGender);
-        ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender,
-                android.R.layout.simple_spinner_item);
+//        ArrayAdapter<CharSequence> genderAdapter = ArrayAdapter.createFromResource(this, R.array.gender,
+//                android.R.layout.simple_spinner_item);
+
+        ArrayAdapter genderAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, gender);
         genderAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spnGender.setAdapter(genderAdapter);
 

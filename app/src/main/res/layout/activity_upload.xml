@@ -186,7 +186,7 @@
                         android:layout_weight="1"
                         android:background="@color/yellowish"
                         android:textColor="@color/darkoliveish"
-                        android:text="Post"
+                        android:text="@string/post"
                         android:textAlignment="center"/>
                 </LinearLayout>
 
