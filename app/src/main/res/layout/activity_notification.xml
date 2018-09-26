@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="12"
-    tools:context="msu.olive.Activity.NotificationActivity">
+    tools:context="msu.roadsafety.Activity.NotificationActivity">
     <LinearLayout
 
         android:layout_weight="10"

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string-array name="road_safety_issue">
-    <item></item>
-    <item>จักรยาน</item>
-    <item>สะพาน</item>
-    <item></item>
-    <item>คนเดินเท้า</item>
-    <item></item>
-    <item>รถแม</item>
-
-
-</string-array>
+    <string-array name="road_safety_issues">
+        <item>เลือกหัวข้อความปลอดภัยที่เกี่ยวข้อง</item>
+        <item>การขับรถยนต์บนท้องถนน</item>
+        <item>การข้ามถนน</item>
+        <item>การใช้ทางเท้า</item>
+        <item>การใช้รถจักรยาน/รถจักรยานยนต์ </item>
+        <item>การใช่สะพานลอย</item>
+        <item>การเป็นผู้โดยสาร</item>
+    </string-array>
 </resources>
